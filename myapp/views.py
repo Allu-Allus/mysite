@@ -21,5 +21,3 @@ def index(request):
 def new_one(request):
     return render(request, 'listing/new_one.html')
 
-def my_place(request):
-    return render(request,'first_static_page/my_place.html')
