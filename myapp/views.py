@@ -1,3 +1,4 @@
+from cgitb import html
 from multiprocessing import context
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -19,3 +20,6 @@ def index(request):
 
 def new_one(request):
     return render(request, 'listing/new_one.html')
+
+def my_place(request):
+    return render(request,'first_static_page/my_place.html')
