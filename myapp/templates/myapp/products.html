@@ -44,7 +44,7 @@
     {% for p in products %}
     <ol>
         <h2 style="text-align:center">Product Card</h2>
-        <a href="/myapp/products/{{p.id}}" ></a>
+        <a href="/myapp/products/{{p.id}}" >
         <div class="card">
             <img src="https://images.priceoye.pk/apple-iphone-12-pakistan-priceoye-3p8na-500x500.webp" alt="Denim Jeans" style="width:100%">
             <h1>{{p.name}}</h1>
@@ -53,7 +53,7 @@
             <br>
             <br>
             
-        </div>
+        </div></a>
 
     </ol>
     {% endfor %}

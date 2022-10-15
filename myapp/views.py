@@ -1,4 +1,5 @@
 from itertools import product
+from unicodedata import name
 from myapp.models import Product
 from cgitb import html
 from multiprocessing import context
@@ -34,3 +35,12 @@ def product_details(request,id):
     p = Product.objects.get(id=id)
     context = {'p':p}
     return render(request,'myapp/product_details.html',context=context)
+
+def add_product(request):
+    p = Product(name= "Samsung 32 Inch Monitor",price =36000.0,)
+  
+    
+    p.description = "This is a Samsung Monitor"
+
+    p.save()
+    return HttpResponse(p)
