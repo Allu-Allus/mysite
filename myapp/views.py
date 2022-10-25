@@ -1,10 +1,11 @@
+from email.mime import image
 from itertools import product
 from unicodedata import name
 from myapp.models import Product
 from cgitb import html
 from multiprocessing import context
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
  
 # Create your views here.
 def index(request):
@@ -37,10 +38,14 @@ def product_details(request,id):
     return render(request,'myapp/product_details.html',context=context)
 
 def add_product(request):
-    p = Product(name= "Samsung 32 Inch Monitor",price =36000.0,)
-  
-    
-    p.description = "This is a Samsung Monitor"
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        price = request.POST.get('price')
+        desc = request.POST.get('desc')
+        image = request.FILES['upload']
+        p = Product(name=name,price=price,description=desc,image=image)
+        p.save()
 
-    p.save()
-    return HttpResponse(p)
+        return redirect('/myapp/products')
+
+    return render(request,'myapp/add_product.html')
