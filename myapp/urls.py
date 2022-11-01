@@ -3,6 +3,8 @@ from turtle import update
 from django.urls import path,include
 from .views import index , new_one, product_details, products,add_product, update_product,delete_product
 
+# app_name = 'myapp'
+
 urlpatterns = [
     path('',index),
     path('new/',new_one),
