@@ -18,8 +18,9 @@
         <div class="mt-10 text-sky-700">ID : {{p.id}}</div>
         <div class="mt-10 text-blue-400">Name : {{p.name}}</div>
         <div class="mt-10 text-pink-400">Description : {{p.description}}</div>
-        <div class="mt-10 text-green-400">Price: {{p.price}}</div>
-
+        <div class="mt-10 text-green-400">Price: {{p.price}}</div><br>
+        <div class="mt-10 text-green-400">Sold By: {{p.seller_name}}</div><br>
+        <a href="{ url 'users:sellerprofile' p.seller_name.id %}"><div class="text-sm text-stone-500 ">Seller Details</div></a>
     </div>
 </div>
     {% endblock  %}
