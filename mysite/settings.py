@@ -47,8 +47,9 @@ INSTALLED_APPS = [
     'users',
     'tailwind',
     'theme',
-    'django_browser_reload'
-    
+    'django_browser_reload',
+    'rest_framework',
+    'api'
 ]
 
 MIDDLEWARE = [
@@ -129,6 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
@@ -144,3 +146,8 @@ NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 
 LOGIN_REDIRECT_URL = 'myapp:products'
 LOGIN_URL = "users:login"
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}

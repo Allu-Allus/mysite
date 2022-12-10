@@ -16,7 +16,7 @@ Including another URLconf
 from xml.etree.ElementInclude import include
 from django.contrib import admin
 from django.urls import path,include
-from  myapp.views import index,new_one
+# from  myapp.views import index,new_one
 from django.conf.urls.static import static
 
 from mysite import settings
@@ -29,6 +29,7 @@ urlpatterns = [
 urlpatterns += [
     path('myapp/',include('myapp.urls')),
      path('users/',include('users.urls')),
+     path('api/',include('api.urls')),
     path("__reload__/", include("django_browser_reload.urls")),
 ]
 
