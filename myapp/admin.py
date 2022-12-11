@@ -9,6 +9,8 @@ admin.site.site_header = 'MySite Cart Administration'
 admin.site.site_title = 'Mysite'
 admin.site.index_title = 'Mysite Cart'
 
+from .models import Cart 
+
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('name','id','price','description',)
     search_fields = ('name',)
@@ -22,3 +24,8 @@ class ProductAdmin(admin.ModelAdmin):
     actions = ('set_price_to_zero','set_price_to_fiftyk',)
 
 admin.site.register(Product,ProductAdmin)
+
+
+@admin.register(Cart)
+class CartModelAdmin(admin.ModelAdmin):
+    list_display = ['id','user','product','quantity']

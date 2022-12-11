@@ -21,6 +21,10 @@ from django.conf.urls.static import static
 
 from mysite import settings
 
+from myapp import views
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
   
@@ -28,11 +32,16 @@ urlpatterns = [
 ]
 urlpatterns += [
     path('myapp/',include('myapp.urls')),
-     path('users/',include('users.urls')),
-     path('api/',include('api.urls')),
+    path('users/',include('users.urls')),
+    path('api/',include('api.urls')),
     path("__reload__/", include("django_browser_reload.urls")),
+
+       
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL,
                             document_root=settings.MEDIA_ROOT)
+
+
 

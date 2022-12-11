@@ -3,6 +3,8 @@
 from django.urls import path,include
 from .views import ProductDelete,  ProductDetailView,ProductListView,ProductUpdateView ,index , new_one, product_details, products,add_product, update_product,delete_product
 
+from . import views
+
 app_name = 'myapp'
 
 urlpatterns = [
@@ -17,4 +19,8 @@ urlpatterns = [
     path('products/update/<int:pk>',ProductUpdateView.as_view(),name = 'update_product'),     
     # path('products/delete/<int:id>',delete_product,name='delete_product'),
     path('products/delete/<int:pk>',ProductDelete.as_view(),name = 'delete_product'),
+#addtocart
+    path('add_to_cart/',views.add_to_cart,name='add_to_cart'),
+    # path('cart/',views.show_cart,name='showcart')
 ] 
+

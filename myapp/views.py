@@ -11,6 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.views.generic import ListView,TemplateView,DeleteView,CreateView,DetailView,UpdateView
 
+
  
 # Create your views here.
 def index(request):
@@ -113,3 +114,13 @@ class ProductDelete(DeleteView):
     template_name = 'myapp/delete_product.html'
     success_url = reverse_lazy('myapp:products')
     context_object_name = 'p'
+
+#addtocart
+
+def cart(request):
+    context = {}
+    return render(request,'myapp/cart.html',context)    
+
+#addtocart
+def add_to_cart(request):
+    pass
