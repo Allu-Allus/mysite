@@ -123,4 +123,13 @@ def cart(request):
 
 #addtocart
 def add_to_cart(request):
-    pass
+    user = request.user
+    product_id = request.GET.get('prod_id')
+    product = product.objects.get(id = product_id)
+    cart(user=user, product=product)
+    return redirect('/cart')
+
+def show_cart(request):
+    user = request.user
+    cart = Cartobjects.filter(user=user)
+    return render(request,'myapp/add_to_cart.html',locals())
